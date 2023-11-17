@@ -1,5 +1,5 @@
 pyyaml
-langchain
+langchain==0.0.332
 bs4
 lxml
 tqdm
