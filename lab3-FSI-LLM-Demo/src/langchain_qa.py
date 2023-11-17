@@ -136,7 +136,7 @@ def search_and_answer(store, chain, query, k=1, doc_source_contains=None):
             verbose=False,
         )
     elif store.__class__.__name__ == "kendra":
-        response = store.retrieve(IndexId=config["kendra"]["index_id"], QueryText=query)
+        response = store.retrieve(IndexId=config["kendra"]["index_id"], QueryText=query, PageSize=2)
         docs = [Document(page_content=r["Content"]) for r in response["ResultItems"]]
     else:
         assert False, f"Unknown doc store {type(store)}"
